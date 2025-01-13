@@ -1,0 +1,835 @@
+@font-face {
+  font-family: "Inconsolata";
+  src: url("../fonts/Inconsolata-VariableFont_wdth\,wght.ttf");
+}
+
+* {
+  /* border: red 2px solid; */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #f1f1f1;
+  font-family: "Inconsolata", sans-serif;
+}
+body {
+  overflow-x: hidden;
+  background-image: url("../images/pattern-lines.svg"),
+    url("../images/pattern-squiggly-line-top.svg"),
+    url("../images/pattern-squiggly-line-bottom.svg"),
+    url("../images/background-desktop.webp");
+  background-position: center, top 50px right, bottom -100px left, center;
+  background-size: cover, 20%, 50%, cover;
+  background-repeat: no-repeat, no-repeat, no-repeat;
+}
+.logo_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+}
+
+.primary-text {
+  color: #f1f1f1;
+  font-family: "Inconsolata", sans-serif;
+  font-size: 2.5rem;
+}
+
+.secondary-text {
+  color: #f1f1f1ba;
+  font-size: 1rem;
+  font-family: "Inconsolata", sans-serif;
+}
+
+.avatar_container {
+  background-color: #f1f1f11c;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 8px;
+  flex-direction: column;
+  border: 2px dashed #f1f1f19e;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.avatar_input {
+  opacity: 0;
+}
+
+.avatar_container.highlight {
+  border-color: #f1f1f161;
+  background-color: #f1f1f1a4;
+}
+
+.avatar_label > img {
+  height: 70px;
+  width: 70px;
+  padding: 10px;
+  border-radius: 12px;
+  margin: 0 0 10px 0;
+  object-fit: cover;
+  background-color: #f1f1f110;
+  border: #f1f1f143 2px solid;
+}
+.avatar_label {
+  padding: 20px 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  flex-direction: column;
+  cursor: pointer;
+}
+.form_container {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.input_container {
+  width: 100%;
+}
+
+.input_container span {
+  font-size: 1rem;
+  padding: 10px 0;
+  font-family: "Inconsolata", sans-serif;
+  color: #f1f1f1d7;
+}
+
+.input_field {
+  margin-top: 10px;
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #f1f1f116;
+  background-color: #f1f1f11c;
+  color: #f1f1f1c4;
+  font-family: "Inconsolata", sans-serif;
+}
+
+.input_field::placeholder {
+  color: #f1f1f1c4;
+}
+
+.input_field:focus {
+  outline: none;
+  border: 1px solid #f1f1f1;
+}
+
+.input_field:hover {
+  border: 1px solid #f1f1f1a3;
+}
+
+.input_field:hover:focus {
+  outline: none;
+  border: 1px solid #f1f1f1;
+}
+
+.avatar_container::placeholder {
+  color: #f1f1f1c4;
+}
+
+.avatar_container:focus {
+  outline: none;
+  border: 2px dashed #f1f1f1;
+}
+
+.avatar_container:hover {
+  border: 2px dashed #f1f1f1a3;
+}
+
+.avatar_container:hover:focus {
+  outline: none;
+  border: 2px dashed #f1f1f1;
+}
+
+.submit_button {
+  margin-top: 10px;
+  padding: 15px;
+  border-radius: 8px;
+  border: none;
+  width: 100%;
+  background-color: #d37a6b;
+  color: #1a0256;
+  font-size: large;
+  font-weight: 600;
+  font-family: "Inconsolata", sans-serif;
+  cursor: pointer;
+  margin-bottom: 50px;
+  border: #d37a6b 2px solid;
+}
+
+.submit_button:active {
+  background-color: #b76d60;
+  color: #2b0c7a;
+  border: #f1f1f188 1px solid;
+}
+
+.submit_button:focus {
+  outline: none;
+}
+
+.submit_button:hover {
+  border-bottom: #f8a292 2px solid;
+}
+
+.input_field::-webkit-file-upload-button {
+  visibility: hidden;
+}
+
+.input_field::file-selector-button {
+  visibility: none;
+}
+
+.info_text {
+  display: none;
+  align-items: center;
+  font-size: small;
+  margin-top: 0.5rem;
+  gap: 8px;
+  color: #f1f1f1ba;
+  color: red;
+  stroke: red;
+}
+
+.avatar_container:has(.avatar_input:focus) {
+  outline: 2px solid #f1f1f1d2;
+}
+.avatar_container:hover {
+  outline: 2px solid #f1f1f18e;
+}
+
+.btn {
+  background-color: #f1f1f136;
+  color: #f1f1f1b5;
+  border: #f1f1f158 1px solid;
+  padding: 2px 8px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #f1f1f15e;
+  color: #f1f1f1d7;
+  border: #f1f1f188 1px solid;
+}
+
+.upload_text {
+  color: #f1f1f1b8;
+  text-wrap: nowrap;
+}
+
+.img_button_container {
+  display: none;
+  white-space: nowrap;
+  padding: 10px 0;
+}
+
+.info_text_label {
+  color: #f1f1f1ba;
+}
+.info_icon {
+  stroke: #f1f1f1ba;
+}
+.info_text_label_img {
+  color: #f1f1f1ba;
+}
+.info_icon_img {
+  stroke: #f1f1f1ba;
+}
+
+.info_text.forAvatar {
+  display: flex;
+}
+
+.ticket_container {
+  width: fit-content;
+  position: relative;
+  margin-top: 5%;
+  /* padding: 40px 40px; */
+  /* border: 2px red solid; */
+}
+
+.highlighted-email {
+  color: #d37a6b;
+}
+
+/* .ticket {
+  /* border: blue 2px solid; 
+} */
+
+.highlighted-text {
+  background: linear-gradient(90deg, #d37a6b, #f1f1f1);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.ticket_content {
+  /* border: green 2px solid  ; */
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  min-width: 540px;
+  max-width: 540px;
+  min-height: 220px;
+  max-height: 220px;
+}
+
+.ticket_name {
+  font-size: xx-large;
+  font-weight: 700;
+  text-align: center;
+}
+
+.ticket_logo {
+  width: fit-content;
+  display: inline-block;
+  /* border: red 2px solid; */
+}
+
+.ticket_logo_container {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  /* border: red 2px solid; */
+}
+
+.ticket_details {
+  padding: 0 20px;
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  /* border: red 2px solid; */
+}
+
+.ticket_logo_container span {
+  color: #f1f1f1ba;
+}
+
+.ticket_avatar_image img {
+  border-radius: 10px;
+  min-width: 80px;
+  max-width: 80px;
+  min-height: 80px;
+  max-height: 80px;
+  object-fit: cover;
+}
+
+.ticket_holder {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+}
+
+.ticket_holder_details {
+  display: flex;
+  padding: 0 20px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  /* border: red 2px solid; */
+}
+
+.github_container {
+  margin-top: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+.ticket_avatar_name {
+  font-weight: 400;
+  font-size: x-large;
+}
+.ticket_avatar_github_username {
+  font-size: medium;
+  color: #f1f1f19b;
+  display: inline;
+}
+.ticket_number {
+  color: #f1f1f14e;
+  font-size: x-large;
+  position: absolute;
+  right: -30px;
+  top: 50%;
+  bottom: 50%;
+  transform: rotate(90deg);
+}
+
+@media screen and (min-width: 1280px) {
+  body {
+    height: 100vh;
+    width: 100vw;
+    background-image: url("../images/pattern-lines.svg"),
+      url("../images/pattern-squiggly-line-top.svg"),
+      url("../images/pattern-squiggly-line-bottom.svg"),
+      url("../images/background-desktop.webp");
+    background-position: center, top 50px right, bottom -100px left, center;
+    background-size: cover, 20%, 50%, cover;
+    background-repeat: no-repeat, no-repeat, no-repeat;
+
+    .container {
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  body {
+    height: 100vh;
+    width: 100vw;
+    background-image: url("../images/pattern-lines.svg"),
+      url("../images/pattern-squiggly-line-top.svg"),
+      url("../images/pattern-squiggly-line-bottom.svg"),
+      url("../images/background-tablet.webp ");
+
+    background-position: center, top 50px right, bottom -200px left, center;
+    background-size: cover, 50%, 100%, cover;
+    background-repeat: no-repeat, no-repeat, no-repeat;
+  }
+
+  .container {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .primary-text {
+    width: 80%;
+  }
+
+  .secondary-text {
+    width: 80%;
+  }
+
+  .form_container {
+    width: 80%;
+  }
+
+  .input_field {
+    padding: 8px;
+  }
+
+  .submit_button {
+    padding: 12px;
+  }
+
+  .avatar_label > img {
+    height: 60px;
+    width: 60px;
+  }
+
+  .avatar_label {
+    padding: 16px 40px;
+  }
+
+  .info_text {
+    font-size: small;
+  }
+
+  .info_text_label {
+    font-size: small;
+  }
+
+  .info_text_label_img {
+    font-size: small;
+  }
+
+  .info_icon {
+    font-size: small;
+  }
+
+  .info_icon_img {
+    font-size: small;
+  }
+
+  .btn {
+    padding: 2px 6px;
+  }
+
+  .upload_text {
+    font-size: small;
+  }
+
+  .img_button_container {
+    padding: 8px 0;
+  }
+
+  .avatar_container {
+    padding: 10px;
+  }
+
+  .avatar_label {
+    padding: 16px 40px;
+  }
+
+  .info_text.forAvatar {
+    font-size: small;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    height: 100vh;
+    width: 100vw;
+    background-image: url("../images/pattern-lines.svg"),
+      url("../images/pattern-squiggly-line-top.svg"),
+      url("../images/pattern-squiggly-line-bottom.svg"),
+      url("../images/background-tablet.webp");
+
+    background-position: center, top 50px right, bottom -200px left, center;
+    background-size: cover, 50%, 100%, cover;
+    background-repeat: no-repeat, no-repeat, no-repeat;
+  }
+
+  .primary-text {
+    width: 80%;
+  }
+
+  .secondary-text {
+    width: 80%;
+  }
+
+  .form_container {
+    width: 80%;
+  }
+
+  .input_field {
+    padding: 8px;
+  }
+
+  .submit_button {
+    padding: 12px;
+  }
+
+  .avatar_label > img {
+    height: 50px;
+    width: 50px;
+  }
+
+  .avatar_label {
+    padding: 12px 30px;
+  }
+
+  .info_text {
+    font-size: small;
+  }
+
+  .info_text_label {
+    font-size: small;
+  }
+
+  .info_text_label_img {
+    font-size: small;
+  }
+
+  .info_icon {
+    font-size: small;
+  }
+
+  .info_icon_img {
+    font-size: small;
+  }
+
+  .btn {
+    padding: 2px 6px;
+  }
+
+  .upload_text {
+    font-size: small;
+  }
+
+  .img_button_container {
+    padding: 8px 0;
+  }
+
+  .avatar_container {
+    padding: 10px;
+  }
+
+  .avatar_label {
+    padding: 12px 30px;
+  }
+
+  .info_text.forAvatar {
+    font-size: small;
+  }
+
+  .ticket_content {
+    top: 20px;
+    left: 20px;
+    min-width: 360px;
+    min-height: 150px;
+  }
+
+  .ticket_number {
+    right: -40px;
+  }
+  .ticket_holder {
+    bottom: 0;
+  }
+
+  .ticket_holder_details {
+    padding: 0 10px;
+  }
+
+  .ticket_avatar_image img {
+    min-width: 60px;
+    max-width: 60px;
+    min-height: 60px;
+    max-height: 60px;
+  }
+
+  .ticket_avatar_name {
+    font-size: large;
+  }
+
+  .ticket_name {
+    font-size: x-large;
+  }
+
+  .ticket_date_location {
+    font-size: smaller;
+  }
+  .ticket_logo img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .ticket_container .ticket {
+    width: 400px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .ticket_content {
+    top: 10px;
+    left: 10px;
+    min-width: 275px;
+    min-height: 125px;
+  }
+  .ticket_number {
+    right: -30px;
+    font-size: large;
+  }
+  .ticket_holder {
+    bottom: 0;
+  }
+
+  .ticket_holder_details {
+    padding: 0 10px;
+  }
+
+  .ticket_avatar_github_username {
+    font-size: small;
+    padding: 0;
+  }
+
+  .ticket_avatar_image img {
+    min-width: 40px;
+    max-width: 40px;
+    min-height: 40px;
+    max-height: 40px;
+  }
+
+  .ticket_avatar_name {
+    font-size: medium;
+  }
+
+  .ticket_name {
+    font-size: large;
+  }
+
+  .ticket_date_location {
+    font-size: x-small;
+  }
+
+  .ticket_details {
+    padding: 0 10px;
+  }
+
+  .ticket_logo img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .ticket_container .ticket {
+    width: 300px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  body {
+    background-image: url("../images/pattern-lines.svg"),
+      url("../images/pattern-squiggly-line-top.svg"),
+      url("../images/pattern-squiggly-line-bottom.svg"),
+      url("../images/background-mobile.webp");
+    background-position: center, top 50px right, bottom -100px left, center;
+    background-size: cover, 50%, 100%, 110%;
+    background-repeat: no-repeat, no-repeat, no-repeat;
+  }
+
+  .primary-text {
+    width: 80%;
+  }
+
+  .secondary-text {
+    width: 80%;
+  }
+
+  .form_container {
+    width: 80%;
+  }
+
+  .input_field {
+    padding: 8px;
+  }
+
+  .submit_button {
+    padding: 12px;
+  }
+
+  .avatar_label > img {
+    height: 40px;
+    width: 40px;
+  }
+
+  .avatar_label {
+    padding: 12px 20px;
+  }
+
+  .info_text {
+    font-size: small;
+  }
+
+  .info_text_label {
+    font-size: small;
+  }
+
+  .info_text_label_img {
+    font-size: small;
+  }
+
+  .info_icon {
+    font-size: small;
+  }
+
+  .info_icon_img {
+    font-size: small;
+  }
+
+  .btn {
+    padding: 2px 6px;
+  }
+
+  .upload_text {
+    font-size: small;
+  }
+
+  .img_button_container {
+    padding: 8px 0;
+  }
+
+  .avatar_container {
+    padding: 10px;
+  }
+
+  .avatar_label {
+    padding: 12px 20px;
+  }
+
+  .info_text.forAvatar {
+    font-size: small;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  body {
+    background-image: url("../images/pattern-lines.svg"),
+      url("../images/pattern-squiggly-line-top.svg"),
+      url("../images/pattern-squiggly-line-bottom.svg"),
+      url("../images/background-mobile.webp");
+    background-position: center, top right, bottom -200px left, center;
+    background-size: cover, 50%, 100%, cover;
+    background-repeat: no-repeat, no-repeat, no-repeat;
+  }
+  .form_container {
+    width: 90%;
+  }
+
+  .input_field {
+    padding: 8px;
+  }
+
+  .submit_button {
+    padding: 12px;
+  }
+
+  .avatar_label > img {
+    height: 30px;
+    width: 30px;
+  }
+
+  .avatar_label {
+    padding: 12px 20px;
+  }
+
+  .info_text {
+    font-size: small;
+  }
+
+  .info_text_label {
+    font-size: small;
+  }
+
+  .info_text_label_img {
+    font-size: small;
+  }
+
+  .info_icon {
+    font-size: small;
+  }
+
+  .info_icon_img {
+    font-size: small;
+  }
+
+  .btn {
+    padding: 2px 6px;
+  }
+
+  .upload_text {
+    font-size: small;
+  }
+
+  .img_button_container {
+    padding: 8px 0;
+  }
+
+  .avatar_container {
+    padding: 10px;
+  }
+
+  .avatar_label {
+    padding: 12px 20px;
+  }
+
+  .info_text.forAvatar {
+    font-size: small;
+  }
+}

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Conference ticket generator" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Conference ticket generator</title>
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <!-- Header starts -->
+    <div class="logo_container">
+      <img src="./assets/images/logo-full.svg" alt="Coding Conf Logo" />
+    </div>
+    <div class="container">
+      <h1 class="primary-text">
+        Congrats,
+        <span class="highlighted-text">Shivrajsinh Zala!</span> Your ticket is
+        ready.
+      </h1>
+      <p class="secondary-text">
+        We've emailed your ticket to
+        <span class="highlighted-email">zalashivraj2642003@gmail.com</span>
+        and will send updates in the run up to the event.
+      </p>
+      <div class="ticket_container">
+        <img src="./assets/images/pattern-ticket.svg" alt="" class="ticket" />
+        <div class="ticket_content">
+          <div class="ticket_logo_container">
+            <div class="ticket_logo">
+              <img src="./assets/images/logo-mark.svg" alt="" srcset="" />
+            </div>
+            <div class="ticket_details">
+              <div class="ticket_name">Coding Conf</div>
+              <div class="ticket_date_location">
+                <span class="ticket_date">Jan 31, 2025</span>
+                <span class="data_location_separator">/</span>
+                <span class="ticket_location">Austin , TX</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="ticket_holder">
+            <div class="ticket_avatar_image">
+              <img src="./assets/images/image-avatar.jpg" alt="" />
+            </div>
+            <div class="ticket_holder_details">
+              <div class="ticket_avatar_name">Jonathan Something</div>
+              <div class="github_container">
+                <img
+                  src="./assets/images/icon-github.svg"
+                  alt=""
+                  class="ticket_avatar_github_icon"
+                />
+                <div class="ticket_avatar_github_username">
+                  @mygithubusername
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="ticket_number">#000001</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Generated tickets starts -->
+
+    <!--  -->
+
+    <!--  -->
+
+    <!-- Coding Conf -->
+    <!-- Jan 31, 2025 / Austin, TX -->
+
+    <!-- Generated tickets ends -->
+
+    <script>
+      // Retrieve data from localStorage
+      const fullName = localStorage.getItem("fullName") || "Guest Name!";
+      const email = localStorage.getItem("email") || "N/A Email";
+      const githubUsername =
+        localStorage.getItem("githubUsername") || "N/A Github Username";
+      const avatar =
+        localStorage.getItem("avatar") || "./assets/images/image-avatar.jpg";
+
+      if (githubUsername[0] === "@") {
+        githubUsername = githubUsername.slice(1);
+      }
+
+      if (fullName[fullName.length - 1] === "!") {
+        fullName = fullName.slice(0, fullName.length - 1);
+      }
+
+      // Display data on the page
+      document.getElementsByClassName(
+        "highlighted-text"
+      )[0].innerText = `${fullName}!`;
+      document.getElementsByClassName("highlighted-email")[0].innerText = email;
+      document.getElementsByClassName("ticket_avatar_name")[0].innerText =
+        fullName;
+      document.getElementsByClassName(
+        "ticket_avatar_github_username"
+      )[0].innerText = `@${githubUsername}`;
+
+      document.getElementsByClassName("ticket_avatar_image")[0].innerHTML = `
+        <img src="${avatar}" alt="" />
+      `;
+
+      document.getElementsByClassName(
+        "ticket_number"
+      )[0].innerText = `#${Math.floor(100000 + Math.random() * 900000)}`;
+    </script>
+  </body>
+</html>

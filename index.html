@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+    <meta name="description" content="Conference ticket generator" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Conference ticket generator</title>
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <!-- Header starts -->
+    <div class="logo_container">
+      <img src="./assets/images/logo-full.svg" alt="Coding Conf Logo" />
+    </div>
+    <div class="container">
+      <h1 class="primary-text">
+        Your Journey to Coding Conf 2025 Starts Here!
+      </h1>
+      <p class="secondary-text">
+        Secure your spot at next year's biggest coding conference.
+      </p>
+      <!-- method="post"
+    
+      onsubmit="return validateForm()"
+      action="/ticket.html"-->
+      <form
+        action="/ticket.html"
+        onsubmit="return validateForm()"
+        class="form_container"
+        method="post"
+      >
+        <label for="avatar" class="input_container">
+          <span> Upload Avatar </span>
+          <div class="avatar_container" id="avatar_container">
+            <input
+              type="file"
+              id="avatar"
+              name="avatar"
+              class="avatar_input"
+              accept="image/png, image/jpeg"
+              onchange="previewImage()"
+            />
+            <label for="avatar" class="avatar_label">
+              <img
+                src="./assets/images/icon-upload.svg"
+                alt="Icon"
+                class="avatar_preview"
+              />
+              <span class="upload_text">
+                Drag and drop or click to upload
+              </span>
+              <div class="img_button_container">
+                <button class="remove_img_button btn" onclick="removeImage()">
+                  remove image
+                </button>
+                <button class="change_img_button btn" onclick="changeImage()">
+                  change image
+                </button>
+              </div>
+            </label>
+          </div>
+          <div class="info_text forAvatar">
+            <svg
+              class="info_icon_img"
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="none"
+              viewBox="0 0 16 16"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M2 8a6 6 0 1 0 12 0A6 6 0 0 0 2 8Z"
+              />
+              <path fill="#D1D0D5" d="M8.004 10.462V7.596ZM8 5.57v-.042Z" />
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M8.004 10.462V7.596M8 5.569v-.042"
+              />
+            </svg>
+            <p class="info_text_label_img">
+              Upload Your photo (JPG or PNG, max size: 500KB).
+            </p>
+          </div>
+        </label>
+
+        <!-- <div class="input_container">
+            <label for="avatar" class="input_label">
+              <span>Upload Avatar</span>
+              <div class="upload_content">
+                <img
+                  src="./assets/images/icon-upload.svg"
+                  alt="Upload Icon"
+                  class="upload_icon"
+                />
+                <p class="upload_text">Drag and drop your photo here</p>
+                <span class="upload_subtext">(or click to browse)</span>
+              </div>
+            </label>
+            <input
+              type="file"
+              id="avatar"
+              name="avatar"
+              class="input_field"
+              accept="image/png, image/jpeg"
+              
+            />
+
+            
+            </div>
+          </div> -->
+
+        <div class="input_container">
+          <label for="full_name" class="input_label">
+            <span> Full Name </span>
+          </label>
+
+          <input
+            type="text"
+            id="full_name"
+            name="full_name"
+            class="input_field"
+            placeholder="Enter your full name"
+          />
+          <div class="info_text">
+            <svg
+              class="info_icon"
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="none"
+              viewBox="0 0 16 16"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M2 8a6 6 0 1 0 12 0A6 6 0 0 0 2 8Z"
+              />
+              <path fill="#D1D0D5" d="M8.004 10.462V7.596ZM8 5.57v-.042Z" />
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M8.004 10.462V7.596M8 5.569v-.042"
+              />
+            </svg>
+
+            <p class="info_text_label">Enter Your Full Name.</p>
+          </div>
+        </div>
+        <div class="input_container">
+          <label for="email" class="input_label">
+            <span> Email Address </span>
+          </label>
+
+          <input
+            type="text"
+            id="email"
+            name="email"
+            class="input_field"
+            placeholder="exaple@email.com"
+          />
+          <div class="info_text">
+            <svg
+              class="info_icon"
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="none"
+              viewBox="0 0 16 16"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M2 8a6 6 0 1 0 12 0A6 6 0 0 0 2 8Z"
+              />
+              <path fill="#D1D0D5" d="M8.004 10.462V7.596ZM8 5.57v-.042Z" />
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M8.004 10.462V7.596M8 5.569v-.042"
+              />
+            </svg>
+            <p class="info_text_label">Enter Your Email Address.</p>
+          </div>
+        </div>
+        <div class="input_container">
+          <label for="github" class="input_label">
+            <span> GitHub Username </span>
+          </label>
+
+          <input
+            type="text"
+            id="github"
+            name="github"
+            class="input_field"
+            placeholder="@yourusername"
+          />
+          <div class="info_text">
+            <svg
+              class="info_icon"
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="none"
+              viewBox="0 0 16 16"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M2 8a6 6 0 1 0 12 0A6 6 0 0 0 2 8Z"
+              />
+              <path fill="#D1D0D5" d="M8.004 10.462V7.596ZM8 5.57v-.042Z" />
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M8.004 10.462V7.596M8 5.569v-.042"
+              />
+            </svg>
+            <p class="info_text_label">Enter Your GitHub Username.</p>
+          </div>
+        </div>
+
+        <button type="submit" class="submit_button">Generate My Ticket</button>
+      </form>
+    </div>
+
+    <!-- Form starts -->
+
+    <!-- Your Journey to Coding Conf 2025 Starts Here! -->
+
+    <!-- Secure your spot at next year's biggest coding conference. -->
+
+    <!-- Upload Avatar -->
+    <!-- Drag and drop or click to upload -->
+    <!-- Upload your photo (JPG or PNG, max size: 500KB). -->
+
+    <!-- Full Name -->
+
+    <!-- Email Address -->
+    <!-- example@email.com -->
+
+    <!-- GitHub Username -->
+    <!-- @yourusername -->
+
+    <!-- Generate My Ticket -->
+
+    <!-- Form ends -->
+
+    <!-- Generated tickets starts -->
+
+    <!-- Congrats, Full Name! Your ticket is ready. -->
+
+    <!-- We've emailed your ticket to Email Address and will send updates in the run up to the event. -->
+
+    <!-- Coding Conf -->
+    <!-- Jan 31, 2025 / Austin, TX -->
+
+    <!-- Generated tickets ends -->
+  </body>
+</html>
