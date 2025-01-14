@@ -277,7 +277,7 @@ function validateForm() {
     localStorage.setItem("avatar", avatarData);
 
     // Redirect to ticket.html
-    window.location.href = "ticket.html";
+    window.location.href = "CodingConfTicketGenerator/ticket.html";
   };
 
   if (file) {
